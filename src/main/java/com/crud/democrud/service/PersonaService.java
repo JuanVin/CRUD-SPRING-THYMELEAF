@@ -7,7 +7,6 @@ package com.crud.democrud.service;
 
 import com.crud.democrud.commons.GenericService;
 import com.crud.democrud.model.Persona;
-import java.io.Serializable;
 
 /**
  *

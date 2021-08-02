@@ -40,7 +40,7 @@ public abstract class GenericServiceImpl<T, ID extends Serializable> implements 
         List<T> returnList = new ArrayList<>();
         getRepository().findAll().forEach(obj -> returnList.add(obj));
         return returnList;
-    }
+    }  
     
     public abstract CrudRepository<T, ID> getRepository();
 }
