@@ -32,11 +32,11 @@ and open the template in the editor.
                         </thead>
                         <tbody>
                             <tr th:each="persona : ${list}">
-                                <th th:text="${persona.nombre}"></th>
+                                <td th:text="${persona.nombre}"></td>
                                 <td th:text="${persona.apellido}"></td>
                                 <td th:text="${persona.direccion}"></td>
                                 <td th:text="${persona.telefono}"></td>
-                                <td><a th:href="@{/save/{id}(id=${persona.id})}" class="btn btn-primary">Editar</a></td>
+                                <td><a th:href="@{/update-user/{id}(id=${persona.id})}" class="btn btn-primary">Editar</a></td>
                                 <td><a th:href="@{/delete/{id}(id=${persona.id})}" class="btn btn-primary">Borrar</a></td> 
                             </tr>
                         </tbody>

@@ -3,6 +3,8 @@ package com.crud.democrud.commons;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+import org.hibernate.annotations.NotFound;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
@@ -25,8 +27,8 @@ public abstract class GenericServiceImpl<T, ID extends Serializable> implements 
 
     @Override
     public T get(ID id) {
-        Object obj = getRepository().findById(id);
-        if (obj != null) return (T) obj;
+        Optional<T> obj = getRepository().findById(id);
+        if(obj.isPresent()) return obj.get();
         return null;
     }
 

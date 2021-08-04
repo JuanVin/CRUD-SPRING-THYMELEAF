@@ -32,24 +32,29 @@ public class PersonaController {
     
     @GetMapping("/adduser")
     public String save(Model model){
-        /*if (id != null){
-            model.addAttribute("persona", personaService.get(id));
-        }*/
         return "add-user";
     }
-    
-    /*
-    
+     
     @GetMapping("/update-user/{id}")
-    public String save(@PathVariable Long id, Model model){
-        if (id != null){
-            model.addAttribute("persona", personaService.get(id));
-        }
-        return "save";
+    public String showUpdateForm(@PathVariable Long id, Model model){
+        
+        Persona persona = personaService.get(id);
+        model.addAttribute("persona", persona);
+        return "update-user";
+        
     }
-    */
+    
+    @PostMapping("/update-user/{id}")
+    public String updateUser(@PathVariable Long id, Persona persona, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            persona.setId(id);
+            return "update-user";
+        }
+        personaService.save(persona);
+        return "redirect:/";
+    }
   
-    @PostMapping("/add")
+    @PostMapping("/adduser")
     public String save(Persona persona, BindingResult result, Model model){
         if (result.hasErrors()) {
             return "add-user";

@@ -23,13 +23,13 @@ public class Persona {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @Column (name="FIRST_NAME", length = 64, unique=false)
+    @Column (length = 64, unique=false)
     private String nombre;
-    @Column (name="LAST_NAME",length = 64, unique=false)
+    @Column (length = 64, unique=false)
     private String apellido;
-    @Column (name="ADRESS", length = 64, unique=false)
+    @Column (length = 64, unique=false)
     private String direccion;
-    @Column (name="PHONE", length = 64, unique=false)
+    @Column (length = 64, unique=false)
     private String telefono;
 
     public Persona(){
